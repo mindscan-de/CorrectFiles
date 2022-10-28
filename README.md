@@ -1,7 +1,7 @@
 # CorrectFiles
 FEC Archiver - Reed-Solomon coding for archive files (not yet implemented)
 
-# Basic Idea
+## Basic Idea
 Encode large container files (e.g. .tgz, .tar.gz, zip, webm, mp4) in a fec-archive such that, if 
 these archives contain errors induced by a storage medium, these archives can be fully recovered 
 and restored, as long as the information theoretic boundaries are not violated.
@@ -20,7 +20,7 @@ is more about the journey and the documented encoding and decoding process, such
 like any other container format and can be streamed / played / restored directly. The idea is more like 
 having a split transport stream, which contains raw data and interleaved blocks containing FEC-Data.
 
-# Not yet implemented
+## Not yet implemented
 This is just the project start and contains no code yet. Idea is to implement RS-Coding probably with
 Python, then Java, then Rust or so.
 
@@ -32,3 +32,11 @@ erasures.
 After being able to recover these data, i want to make encoding as fast as possible, and the solver
 to solve as robust as possible, maybe in an iterative sodoku style, when a very complicated erasure 
 pattern is found, which is solvable, if you solve it in the correct order.
+
+## Algorithms
+We may or may not find some cool (unusual) and/or fast algorithms along the way. My hope is maybe we can
+find a high performance Reed-Solomon-Encoder and or Decoder along this journey.
+
+I had some background in signal ransmission theory and channel coding, but most of my knowledge vanished
+so I also want to recover my lost knowledge about this. This project is the perfect challenge and reason
+to recover some of my former knowledge.
