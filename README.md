@@ -37,6 +37,6 @@ pattern is found, which is solvable, if you solve it in the correct order.
 We may or may not find some cool (unusual) and/or fast algorithms along the way. My hope is maybe we can
 find a high performance Reed-Solomon-Encoder and or Decoder along this journey.
 
-I had some background in signal ransmission theory and channel coding, but most of my knowledge vanished
-so I also want to recover my lost knowledge about this. This project is the perfect challenge and reason
-to recover some of my former knowledge.
+I had some background in signal transmission theory, information theory and channel coding, but most of
+my knowledge vanished, so I also want to recover my lost knowledge about this. This project is the perfect
+challenge and reason to recover some of my former knowledge and gain new knowledge as well.
