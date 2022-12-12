@@ -38,7 +38,7 @@ public class GF256Math {
     /**
      * @param pimitiveGenerator
      */
-    public GF256Math( int primitiveGenerator ) {
+    public GF256Math( int primitiveGenerator, int primitiveElement ) {
         this.primGenPoly = primitiveGenerator;
     }
 

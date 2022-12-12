@@ -14,7 +14,7 @@ public class GF256MathTest {
         // arrange
 
         // act
-        GF256Math result = new GF256Math( 0x11d );
+        GF256Math result = new GF256Math( 0x11d, 2 );
 
         // assert
         assertThat( result, not( nullValue() ) );
@@ -23,7 +23,7 @@ public class GF256MathTest {
     @Test
     public void testOpAdd_Add137And42_expect163() throws Exception {
         // arrange
-        GF256Math gf256m = new GF256Math( 0x11d );
+        GF256Math gf256m = GF256MathFactory.createGF256Math();
 
         // act
         int result = gf256m.opAdd( 137, 42 );
@@ -35,7 +35,7 @@ public class GF256MathTest {
     @Test
     public void testMulClNolutNoreduce_137And42_expct5242() throws Exception {
         // arrange
-        GF256Math gf256m = new GF256Math( 0x11d );
+        GF256Math gf256m = GF256MathFactory.createGF256Math();
 
         // act
         int result = gf256m.mulClNolutNoreduce( 137, 42 );
@@ -47,7 +47,7 @@ public class GF256MathTest {
     @Test
     public void testMulClNolutNoreduce_42And137_expct5242() throws Exception {
         // arrange
-        GF256Math gf256m = new GF256Math( 0x11d );
+        GF256Math gf256m = GF256MathFactory.createGF256Math();
 
         // act
         int result = gf256m.mulClNolutNoreduce( 42, 137 );
@@ -59,7 +59,7 @@ public class GF256MathTest {
     @Test
     public void testOpMsb_0_0() throws Exception {
         // arrange
-        GF256Math gf256m = new GF256Math( 0x11d );
+        GF256Math gf256m = GF256MathFactory.createGF256Math();
 
         // act
         int result = gf256m.opMsb( 0 );
@@ -71,7 +71,7 @@ public class GF256MathTest {
     @Test
     public void testOpMsb_1_1() throws Exception {
         // arrange
-        GF256Math gf256m = new GF256Math( 0x11d );
+        GF256Math gf256m = GF256MathFactory.createGF256Math();
 
         // act
         int result = gf256m.opMsb( 1 << 0 );
@@ -83,7 +83,7 @@ public class GF256MathTest {
     @Test
     public void testOpMsb_2_2() throws Exception {
         // arrange
-        GF256Math gf256m = new GF256Math( 0x11d );
+        GF256Math gf256m = GF256MathFactory.createGF256Math();
 
         // act
         int result = gf256m.opMsb( 1 << 1 );
@@ -95,7 +95,7 @@ public class GF256MathTest {
     @Test
     public void testOpMsb_128_8() throws Exception {
         // arrange
-        GF256Math gf256m = new GF256Math( 0x11d );
+        GF256Math gf256m = GF256MathFactory.createGF256Math();
 
         // act
         int result = gf256m.opMsb( 1 << 7 );
@@ -107,7 +107,7 @@ public class GF256MathTest {
     @Test
     public void testOpMsb_256_9() throws Exception {
         // arrange
-        GF256Math gf256m = new GF256Math( 0x11d );
+        GF256Math gf256m = GF256MathFactory.createGF256Math();
 
         // act
         int result = gf256m.opMsb( 1 << 8 );
@@ -119,7 +119,7 @@ public class GF256MathTest {
     @Test
     public void testGetPrimitivePoly_ctor11d_expect11d() throws Exception {
         // arrange
-        GF256Math gf256m = new GF256Math( 0x11d );
+        GF256Math gf256m = GF256MathFactory.createGF256Math();
 
         // act
         int result = gf256m.getPrimitivePoly();
@@ -131,7 +131,7 @@ public class GF256MathTest {
     @Test
     public void testReduce_1_1() throws Exception {
         // arrange
-        GF256Math gf256m = new GF256Math( 0x11d );
+        GF256Math gf256m = GF256MathFactory.createGF256Math();
 
         // act
         int result = gf256m.reduce( 1 );
@@ -143,7 +143,7 @@ public class GF256MathTest {
     @Test
     public void testReduce_5242_195() throws Exception {
         // arrange
-        GF256Math gf256m = new GF256Math( 0x11d );
+        GF256Math gf256m = GF256MathFactory.createGF256Math();
 
         // act
         int result = gf256m.reduce( 5242 );
@@ -155,7 +155,7 @@ public class GF256MathTest {
     @Test
     public void testMulClNoLut_137And42_195() throws Exception {
         // arrange
-        GF256Math gf256m = new GF256Math( 0x11d );
+        GF256Math gf256m = GF256MathFactory.createGF256Math();
 
         // act
         int result = gf256m.mulClNoLut( 137, 42 );
@@ -167,7 +167,7 @@ public class GF256MathTest {
     @Test
     public void testOpMul_137And42_195() throws Exception {
         // arrange
-        GF256Math gf256m = new GF256Math( 0x11d );
+        GF256Math gf256m = GF256MathFactory.createGF256Math();
         gf256m.init();
 
         // act
@@ -180,7 +180,7 @@ public class GF256MathTest {
     @Test
     public void testOpMul_35And36_152() throws Exception {
         // arrange
-        GF256Math gf256m = new GF256Math( 0x11d );
+        GF256Math gf256m = GF256MathFactory.createGF256Math();
         gf256m.init();
 
         // act
