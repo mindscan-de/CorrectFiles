@@ -99,6 +99,10 @@ public class GF256Math {
         return result;
     }
 
+    int mulClNoLut( int x, int y ) {
+        return reduce( mulClNolutNoreduce( x, y ) );
+    }
+
     int reduce( int dividend ) {
         int dividendMsb = this.opMsb( dividend );
         int divisorMsb = this.opMsb( this.primGenPoly );

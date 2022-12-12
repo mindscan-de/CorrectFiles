@@ -152,4 +152,16 @@ public class GF256MathTest {
         assertThat( result, equalTo( 195 ) );
     }
 
+    @Test
+    public void testMulClNoLut_137And42_195() throws Exception {
+        // arrange
+        GF256Math gf256m = new GF256Math( 0x11d );
+
+        // act
+        int result = gf256m.mulClNoLut( 137, 42 );
+
+        // assert
+        assertThat( result, equalTo( 195 ) );
+    }
+
 }
