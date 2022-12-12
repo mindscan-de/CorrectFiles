@@ -32,6 +32,9 @@ public class GF256Math {
 
     private int primGenPoly = 0;
 
+    private int[] logTable = new int[256];
+    private int[] antilogTable = new int[256];
+
     /**
      * @param pimitiveGenerator
      */
@@ -70,6 +73,14 @@ public class GF256Math {
             msb++;
         }
         return msb;
+    }
+
+    public int opMul( int x, int y ) {
+        if (x == 0 || y == 0) {
+            return 0;
+        }
+
+        return this.antilogTable[(this.logTable[x] + this.logTable[y]) % 255];
     }
 
     /**
@@ -125,7 +136,22 @@ public class GF256Math {
      * such they can use pre-computed tables.
      */
     public void init() {
+        init_gf_log_antilog_tables();
+    }
 
+    private void init_gf_log_antilog_tables() {
+        this.logTable = new int[256];
+        this.antilogTable = new int[256];
+
+        int x = 1;
+        for (int i = 0; i < 256; i++) {
+            this.antilogTable[i] = x;
+            this.logTable[x] = i;
+
+            // update to next generated value
+            // the Value 2 must actually be the primitive element used for the particular irreducible polynomial
+            x = this.mulClNoLut( x, 2 );
+        }
     }
 
 }
