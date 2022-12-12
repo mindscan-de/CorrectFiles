@@ -32,4 +32,28 @@ public class GF256MathTest {
         assertThat( result, equalTo( 163 ) );
     }
 
+    @Test
+    public void testMulClNolutNoreduce_137And42_expct5242() throws Exception {
+        // arrange
+        GF256Math gf256m = new GF256Math( 0x11d );
+
+        // act
+        int result = gf256m.mulClNolutNoreduce( 137, 42 );
+
+        // assert
+        assertThat( result, equalTo( 5242 ) );
+    }
+
+    @Test
+    public void testMulClNolutNoreduce_42And137_expct5242() throws Exception {
+        // arrange
+        GF256Math gf256m = new GF256Math( 0x11d );
+
+        // act
+        int result = gf256m.mulClNolutNoreduce( 42, 137 );
+
+        // assert
+        assertThat( result, equalTo( 5242 ) );
+    }
+
 }

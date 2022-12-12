@@ -64,8 +64,16 @@ public class GF256Math {
      * @param y
      * @return
      */
-    int mul_cl_nolut_noreduce( int x, int y ) {
-        return 0;
+    int mulClNolutNoreduce( int x, int y ) {
+        int result = 0;
+        int i = 0;
+        while ((y >> i) > 0) {
+            if ((y & (1 << i)) != 0) {
+                result = this.opAdd( result, x << i );
+            }
+            i++;
+        }
+        return result;
     }
 
     /**
