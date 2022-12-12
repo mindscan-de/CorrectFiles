@@ -30,11 +30,13 @@ package de.mindscan.correctfiles.gf256;
  */
 public class GF256Math {
 
+    private int primGenPoly = 0;
+
     /**
      * @param pimitiveGenerator
      */
-    public GF256Math( int pimitiveGenerator ) {
-
+    public GF256Math( int primitiveGenerator ) {
+        this.primGenPoly = primitiveGenerator;
     }
 
     /**
@@ -58,6 +60,27 @@ public class GF256Math {
     }
 
     /**
+     * Calculate the number of bits to fully represent the given value.
+     * @param value
+     * @return
+     */
+    public int opMsb( int value ) {
+        int msb = 0;
+        while ((value >> msb) > 0) {
+            msb++;
+        }
+        return msb;
+    }
+
+    /**
+     * Get the primitive Generator Polynomial set in constructor.
+     * @return the primitive generator polynomial
+     */
+    public int getPrimitivePoly() {
+        return this.primGenPoly;
+    }
+
+    /**
      * Multiplicaton, carryless, no nookup tables, and no reduction, according to primitive generator polynom
      * 
      * @param x 
@@ -74,14 +97,6 @@ public class GF256Math {
             i++;
         }
         return result;
-    }
-
-    int opMsb( int value ) {
-        int msb = 0;
-        while ((value >> msb) > 0) {
-            msb++;
-        }
-        return msb;
     }
 
     /**

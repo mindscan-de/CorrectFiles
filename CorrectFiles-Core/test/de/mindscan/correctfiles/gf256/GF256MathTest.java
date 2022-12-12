@@ -116,4 +116,16 @@ public class GF256MathTest {
         assertThat( result, equalTo( 9 ) );
     }
 
+    @Test
+    public void testGetPrimitivePoly_ctor11d_expect11d() throws Exception {
+        // arrange
+        GF256Math gf256m = new GF256Math( 0x11d );
+
+        // act
+        int result = gf256m.getPrimitivePoly();
+
+        // assert
+        assertThat( result, equalTo( 0x11d ) );
+    }
+
 }
