@@ -26,7 +26,8 @@
 package de.mindscan.correctfiles.gf256;
 
 /**
- * 
+ *  x**8 + x**4 + x**3 + x**2 + 1  == 1 0001 1101 == 285 | 2
+ *  x**8 + x**5 + x**3 + x**1 + 1  == 1 0010 1011 == 299 | 2
  */
 public class GF256MathFactory {
 
