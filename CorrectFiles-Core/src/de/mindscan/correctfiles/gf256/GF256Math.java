@@ -99,6 +99,23 @@ public class GF256Math {
         return result;
     }
 
+    int reduce( int dividend ) {
+        int dividendMsb = this.opMsb( dividend );
+        int divisorMsb = this.opMsb( this.primGenPoly );
+
+        if (dividend < divisorMsb) {
+            return dividend;
+        }
+
+        for (int i = dividendMsb - divisorMsb; i >= 0; i--) {
+            if ((dividend & (1 << (divisorMsb + i - 1))) > 0) {
+                dividend = opSub( dividend, primGenPoly << i );
+            }
+        }
+
+        return dividend;
+    }
+
     /**
      * Initializes the mathematical operation of the galoisfield 2^8 arithmetics, 
      * such they can use pre-computed tables.
