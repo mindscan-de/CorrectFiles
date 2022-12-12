@@ -75,6 +75,12 @@ public class GF256Math {
         return msb;
     }
 
+    /**
+     * Calculate a multiplication using a log and anti-log tables.
+     * @param x value
+     * @param y value
+     * @return result
+     */
     public int opMul( int x, int y ) {
         if (x == 0 || y == 0) {
             return 0;
