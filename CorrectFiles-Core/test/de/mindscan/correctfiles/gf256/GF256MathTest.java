@@ -177,4 +177,17 @@ public class GF256MathTest {
         assertThat( result, equalTo( 195 ) );
     }
 
+    @Test
+    public void testOpMul_35And36_152() throws Exception {
+        // arrange
+        GF256Math gf256m = new GF256Math( 0x11d );
+        gf256m.init();
+
+        // act
+        int result = gf256m.opMul( 35, 36 );
+
+        // assert
+        assertThat( result, equalTo( 152 ) );
+    }
+
 }
