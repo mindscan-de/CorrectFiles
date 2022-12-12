@@ -56,4 +56,64 @@ public class GF256MathTest {
         assertThat( result, equalTo( 5242 ) );
     }
 
+    @Test
+    public void testOpMsb_0_0() throws Exception {
+        // arrange
+        GF256Math gf256m = new GF256Math( 0x11d );
+
+        // act
+        int result = gf256m.opMsb( 0 );
+
+        // assert
+        assertThat( result, equalTo( 0 ) );
+    }
+
+    @Test
+    public void testOpMsb_1_1() throws Exception {
+        // arrange
+        GF256Math gf256m = new GF256Math( 0x11d );
+
+        // act
+        int result = gf256m.opMsb( 1 << 0 );
+
+        // assert
+        assertThat( result, equalTo( 1 ) );
+    }
+
+    @Test
+    public void testOpMsb_2_2() throws Exception {
+        // arrange
+        GF256Math gf256m = new GF256Math( 0x11d );
+
+        // act
+        int result = gf256m.opMsb( 1 << 1 );
+
+        // assert
+        assertThat( result, equalTo( 2 ) );
+    }
+
+    @Test
+    public void testOpMsb_128_8() throws Exception {
+        // arrange
+        GF256Math gf256m = new GF256Math( 0x11d );
+
+        // act
+        int result = gf256m.opMsb( 1 << 7 );
+
+        // assert
+        assertThat( result, equalTo( 8 ) );
+    }
+
+    @Test
+    public void testOpMsb_256_9() throws Exception {
+        // arrange
+        GF256Math gf256m = new GF256Math( 0x11d );
+
+        // act
+        int result = gf256m.opMsb( 1 << 8 );
+
+        // assert
+        assertThat( result, equalTo( 9 ) );
+    }
+
 }

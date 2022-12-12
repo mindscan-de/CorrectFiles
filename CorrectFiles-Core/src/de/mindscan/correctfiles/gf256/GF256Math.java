@@ -76,6 +76,14 @@ public class GF256Math {
         return result;
     }
 
+    int opMsb( int value ) {
+        int msb = 0;
+        while ((value >> msb) > 0) {
+            msb++;
+        }
+        return msb;
+    }
+
     /**
      * Initializes the mathematical operation of the galoisfield 2^8 arithmetics, 
      * such they can use pre-computed tables.
