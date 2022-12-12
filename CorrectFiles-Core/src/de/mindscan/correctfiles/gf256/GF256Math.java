@@ -38,6 +38,37 @@ public class GF256Math {
     }
 
     /**
+     * Add, x and y according to the rules of GF 2**8 Math (exclusive or)
+     * @param x value
+     * @param y value
+     * @return result of x and y added.
+     */
+    public int opAdd( int x, int y ) {
+        return x ^ y;
+    }
+
+    /**
+     * Subtract, x and y according to the rules of GF 2**8 Math (exclusive or)
+     * @param x value
+     * @param y value
+     * @return result of x and y subtracted.
+     */
+    public int opSub( int x, int y ) {
+        return x ^ y;
+    }
+
+    /**
+     * Multiplicaton, carryless, no nookup tables, and no reduction, according to primitive generator polynom
+     * 
+     * @param x 
+     * @param y
+     * @return
+     */
+    int mul_cl_nolut_noreduce( int x, int y ) {
+        return 0;
+    }
+
+    /**
      * Initializes the mathematical operation of the galoisfield 2^8 arithmetics, 
      * such they can use pre-computed tables.
      */

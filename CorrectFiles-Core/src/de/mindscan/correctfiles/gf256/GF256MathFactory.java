@@ -38,6 +38,7 @@ public class GF256MathFactory {
     public GF256Math createGF256Math( int pimitiveGenerator ) {
         GF256Math gf256Math = new GF256Math( pimitiveGenerator );
         gf256Math.init();
+
         return gf256Math;
     }
 
