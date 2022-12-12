@@ -31,6 +31,7 @@ package de.mindscan.correctfiles.gf256;
 public class GF256Math {
 
     private int primGenPoly = 0;
+    private int primitiveElement = 2;
 
     private int[] logTable = new int[256];
     private int[] antilogTable = new int[256];
@@ -40,6 +41,7 @@ public class GF256Math {
      */
     public GF256Math( int primitiveGenerator, int primitiveElement ) {
         this.primGenPoly = primitiveGenerator;
+        this.primitiveElement = primitiveElement;
     }
 
     /**
@@ -154,9 +156,7 @@ public class GF256Math {
             this.antilogTable[i] = x;
             this.logTable[x] = i;
 
-            // update to next generated value
-            // the Value 2 must actually be the primitive element used for the particular irreducible polynomial
-            x = this.mulClNoLut( x, 2 );
+            x = this.mulClNoLut( x, this.primitiveElement );
         }
     }
 
