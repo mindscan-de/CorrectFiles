@@ -169,7 +169,6 @@ public class GF256MathTest {
     public void testOpMul_137And42_195() throws Exception {
         // arrange
         GF256Math gf256m = GF256MathFactory.createGF256Math();
-        gf256m.init();
 
         // act
         int result = gf256m.opMul( 137, 42 );
@@ -182,7 +181,6 @@ public class GF256MathTest {
     public void testOpMul_35And36_152() throws Exception {
         // arrange
         GF256Math gf256m = GF256MathFactory.createGF256Math();
-        gf256m.init();
 
         // act
         int result = gf256m.opMul( 35, 36 );
