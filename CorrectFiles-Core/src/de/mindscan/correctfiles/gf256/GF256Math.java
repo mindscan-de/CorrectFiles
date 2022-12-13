@@ -123,6 +123,28 @@ public class GF256Math {
         return this.antilogTable[255 - this.logTable[x]];
     }
 
+    // maybe we need/want this later
+//    /**
+//     * Calculates the n-th power of x. 
+//     * @param x
+//     * @param n
+//     * @return
+//     */
+//    public int opPow( int x, int n ) {
+//        if (x == 0) {
+//            return 0;
+//        }
+//        return this.antilogTable[(n * this.logTable[x]) % 255];
+//    }
+
+//    public int opSqr( int x ) {
+//        if (x == 0) {
+//            return 0;
+//        }
+//
+//        return this.antilogTable[(2 * this.logTable[x]) % 255];
+//    }
+
     /**
      * Get the primitive Generator Polynomial set in constructor.
      * @return the primitive generator polynomial
