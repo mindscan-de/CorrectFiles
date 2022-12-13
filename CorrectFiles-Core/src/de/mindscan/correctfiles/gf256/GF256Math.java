@@ -78,7 +78,7 @@ public class GF256Math {
     }
 
     /**
-     * Calculate a multiplication using a log and anti-log tables.
+     * Calculate a multiplication using log and anti-log tables.
      * @param x value
      * @param y value
      * @return result
@@ -89,6 +89,25 @@ public class GF256Math {
         }
 
         return this.antilogTable[(this.logTable[x] + this.logTable[y]) % 255];
+    }
+
+    /**
+     * Calculate a division using log and anti-log tables
+     * @param dividend the dividend
+     * @param divisor the divisor
+     * @return result
+     */
+    public int opDiv( int dividend, int divisor ) {
+        if (divisor == 0) {
+            throw new ArithmeticException( "Divide by zero." );
+        }
+
+        if (dividend == 0) {
+            return 0;
+        }
+        else {
+            return this.antilogTable[(255 + this.logTable[dividend] - this.logTable[divisor]) % 255];
+        }
     }
 
     /**

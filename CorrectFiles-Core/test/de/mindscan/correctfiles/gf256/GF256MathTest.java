@@ -4,6 +4,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.not;
 import static org.hamcrest.Matchers.nullValue;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
 
@@ -188,6 +189,30 @@ public class GF256MathTest {
 
         // assert
         assertThat( result, equalTo( 152 ) );
+    }
+
+    @Test
+    public void testOpDiv_dividendIsZero_expectZero() throws Exception {
+        // arrange
+        GF256Math gf256m = GF256MathFactory.createGF256Math();
+
+        // act
+        int result = gf256m.opDiv( 0, 1 );
+
+        // assert
+        assertThat( result, equalTo( 0 ) );
+    }
+
+    @Test
+    public void testOpDiv_divisorIsZero_throwsArithmeticException() throws Exception {
+        // arrange
+        GF256Math gf256m = GF256MathFactory.createGF256Math();
+
+        // act
+        // assert
+        assertThrows( ArithmeticException.class, () -> {
+            gf256m.opDiv( 1, 0 );
+        } );
     }
 
 }
