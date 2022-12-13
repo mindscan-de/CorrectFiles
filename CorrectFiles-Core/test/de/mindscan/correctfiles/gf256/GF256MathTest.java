@@ -249,4 +249,28 @@ public class GF256MathTest {
         } );
     }
 
+    @Test
+    public void testOpDiv_152DividedBy36_expect35() throws Exception {
+        // arrange
+        GF256Math gf256m = GF256MathFactory.createGF256Math();
+
+        // act
+        int result = gf256m.opDiv( 152, 36 );
+
+        // assert
+        assertThat( result, equalTo( 35 ) );
+    }
+
+    @Test
+    public void testOpDiv_152DividedBy35_expect36() throws Exception {
+        // arrange
+        GF256Math gf256m = GF256MathFactory.createGF256Math();
+
+        // act
+        int result = gf256m.opDiv( 152, 35 );
+
+        // assert
+        assertThat( result, equalTo( 36 ) );
+    }
+
 }
