@@ -190,6 +190,42 @@ public class GF256MathTest {
     }
 
     @Test
+    public void testOpMul_ZeroAndZero_Zero() throws Exception {
+        // arrange
+        GF256Math gf256m = GF256MathFactory.createGF256Math();
+
+        // act
+        int result = gf256m.opMul( 0, 0 );
+
+        // assert
+        assertThat( result, equalTo( 0 ) );
+    }
+
+    @Test
+    public void testOpMul_ZeroAnd123_Zero() throws Exception {
+        // arrange
+        GF256Math gf256m = GF256MathFactory.createGF256Math();
+
+        // act
+        int result = gf256m.opMul( 0, 123 );
+
+        // assert
+        assertThat( result, equalTo( 0 ) );
+    }
+
+    @Test
+    public void testOpMul_123AndZero_Zero() throws Exception {
+        // arrange
+        GF256Math gf256m = GF256MathFactory.createGF256Math();
+
+        // act
+        int result = gf256m.opMul( 123, 0 );
+
+        // assert
+        assertThat( result, equalTo( 0 ) );
+    }
+
+    @Test
     public void testOpDiv_dividendIsZero_expectZero() throws Exception {
         // arrange
         GF256Math gf256m = GF256MathFactory.createGF256Math();
