@@ -111,6 +111,19 @@ public class GF256Math {
     }
 
     /**
+     * Calculates the multiplicative inverse using log and antilog tables.
+     * @param x the value
+     * @return the multiplicative inverse if this value
+     */
+    public int opInverse( int x ) {
+        if (x == 0) {
+            throw new ArithmeticException( "Divide by zero." );
+        }
+
+        return this.antilogTable[255 - this.logTable[x]];
+    }
+
+    /**
      * Get the primitive Generator Polynomial set in constructor.
      * @return the primitive generator polynomial
      */

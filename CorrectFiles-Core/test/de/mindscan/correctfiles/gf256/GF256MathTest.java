@@ -273,4 +273,52 @@ public class GF256MathTest {
         assertThat( result, equalTo( 36 ) );
     }
 
+    @Test
+    public void testOpInverse_InverseOf152_expect11() throws Exception {
+        // arrange
+        GF256Math gf256m = GF256MathFactory.createGF256Math();
+
+        // act
+        int result = gf256m.opInverse( 152 );
+
+        // assert
+        assertThat( result, equalTo( 11 ) );
+    }
+
+    @Test
+    public void testOpInverse_InverseOf152MultipliedBy152_expectOne() throws Exception {
+        // arrange
+        GF256Math gf256m = GF256MathFactory.createGF256Math();
+
+        // act
+        int result = gf256m.opMul( gf256m.opInverse( 152 ), 152 );
+
+        // assert
+        assertThat( result, equalTo( 1 ) );
+    }
+
+    @Test
+    public void testOpInverse_InverseOf211MultipliedBy211_expectOne() throws Exception {
+        // arrange
+        GF256Math gf256m = GF256MathFactory.createGF256Math();
+
+        // act
+        int result = gf256m.opMul( gf256m.opInverse( 211 ), 211 );
+
+        // assert
+        assertThat( result, equalTo( 1 ) );
+    }
+
+    @Test
+    public void testOpInverse_calculateInverseOfZero_throwsArithmeticException() throws Exception {
+        // arrange
+        GF256Math gf256m = GF256MathFactory.createGF256Math();
+
+        // act
+        // assert
+        assertThrows( ArithmeticException.class, () -> {
+            gf256m.opInverse( 0 );
+        } );
+    }
+
 }
