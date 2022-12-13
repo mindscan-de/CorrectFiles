@@ -32,12 +32,11 @@ package de.mindscan.correctfiles.gf256;
 public class GF256MathFactory {
 
     public static GF256Math createGF256Math() {
-        return createGF256Math( 0x11d );
+        return createGF256Math( GF256MathPolydata.GF_256_0x11D );
     }
 
-    // actually for degree of 8 we only have 16 different primitive polynomials
-    public static GF256Math createGF256Math( int pimitiveGenerator ) {
-        GF256Math gf256Math = new GF256Math( pimitiveGenerator, 2 );
+    public static GF256Math createGF256Math( GF256MathPolydata polydata ) {
+        GF256Math gf256Math = new GF256Math( polydata.getPoly(), polydata.getMinPrimitiveElement() );
         gf256Math.init();
 
         return gf256Math;
