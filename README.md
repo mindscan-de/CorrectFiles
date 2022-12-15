@@ -20,6 +20,9 @@ is more about the journey and the documented encoding and decoding process, such
 like any other container format and can be streamed / played / restored directly. The idea is more like 
 having a split transport stream, which contains raw data and interleaved blocks containing FEC-Data.
 
+Over the last days I found that such a tool may already exist, [Parchive](https://github.com/Parchive) and
+it seems to be under development, now reaching version 3.
+
 ## Not yet implemented
 This is just the project start and contains no code yet. Idea is to implement RS-Coding probably with
 Python, then Java, then Rust or so.
