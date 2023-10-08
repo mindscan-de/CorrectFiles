@@ -37,6 +37,7 @@ public class GF256MathFactory {
 
     public static GF256Math createGF256Math( GF256MathPolydata polydata ) {
         GF256Math gf256Math = new GF256Math( polydata.getPoly(), polydata.getMinPrimitiveElement() );
+        // initializes the log and anti-log tables.
         gf256Math.init();
 
         return gf256Math;
