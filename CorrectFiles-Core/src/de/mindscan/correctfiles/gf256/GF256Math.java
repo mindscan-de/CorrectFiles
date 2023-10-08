@@ -88,6 +88,7 @@ public class GF256Math {
             return 0;
         }
 
+        // can be optimized to get rid of the 255 modulo operation by making the antilog table twice the length
         return this.antilogTable[(this.logTable[x] + this.logTable[y]) % 255];
     }
 
@@ -106,6 +107,7 @@ public class GF256Math {
             return 0;
         }
         else {
+            // can be optimized to get rid of the 255 modulo operation by making the antilog table twice the length
             return this.antilogTable[(255 + this.logTable[dividend] - this.logTable[divisor]) % 255];
         }
     }

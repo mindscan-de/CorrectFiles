@@ -30,11 +30,14 @@ package de.mindscan.correctfiles.gf256;
  */
 public class GF4096Math {
 
+    private static final int GF_SIZE = 1 << 12;
+    private static final int GF_SIZE_MASK = GF_SIZE - 1;
+
     private int primGenPoly = 0;
     private int primitiveElement = 2;
 
-    private int[] logTable = new int[4096];
-    private int[] antilogTable = new int[4096];
+    private int[] logTable = new int[GF_SIZE];
+    private int[] antilogTable = new int[GF_SIZE];
 
     /**
      * @param pimitiveGenerator
@@ -88,6 +91,7 @@ public class GF4096Math {
             return 0;
         }
 
+        // can be optimized to get rid of the 4095 modulo operation by making the antilog table twice the length
         return this.antilogTable[(this.logTable[x] + this.logTable[y]) % 4095];
     }
 
@@ -106,6 +110,7 @@ public class GF4096Math {
             return 0;
         }
         else {
+            // can be optimized to get rid of the 4095 modulo operation by making the antilog table twice the length
             return this.antilogTable[(4095 + this.logTable[dividend] - this.logTable[divisor]) % 4095];
         }
     }
@@ -202,11 +207,11 @@ public class GF4096Math {
     }
 
     private void init_gf_log_antilog_tables() {
-        this.logTable = new int[4096];
-        this.antilogTable = new int[4096];
+        this.logTable = new int[GF_SIZE];
+        this.antilogTable = new int[GF_SIZE];
 
         int x = 1;
-        for (int i = 0; i < 4096; i++) {
+        for (int i = 0; i < GF_SIZE; i++) {
             this.antilogTable[i] = x;
             this.logTable[x] = i;
 
