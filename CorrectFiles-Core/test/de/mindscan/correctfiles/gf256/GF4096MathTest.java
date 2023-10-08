@@ -10,8 +10,7 @@ public class GF4096MathTest {
     @Test
     public void testGF4096Math_Mul() throws Exception {
         // arrange
-        GF4096Math gf4096Math = new GF4096Math( 4179, 2 );
-        gf4096Math.init();
+        GF4096Math gf4096Math = GF4096MathFactory.createGFGf4096Math();
 
         // act
         int result = gf4096Math.opMul( 211, 2111 );
@@ -23,8 +22,7 @@ public class GF4096MathTest {
     @Test
     public void testGF4096Math_Div1() throws Exception {
         // arrange
-        GF4096Math gf4096Math = new GF4096Math( 4179, 2 );
-        gf4096Math.init();
+        GF4096Math gf4096Math = GF4096MathFactory.createGFGf4096Math();
 
         // act
         int result = gf4096Math.opDiv( 1946, 211 );
@@ -36,8 +34,7 @@ public class GF4096MathTest {
     @Test
     public void testGF4096Math_Div2() throws Exception {
         // arrange
-        GF4096Math gf4096Math = new GF4096Math( 4179, 2 );
-        gf4096Math.init();
+        GF4096Math gf4096Math = GF4096MathFactory.createGFGf4096Math();
 
         // act
         int result = gf4096Math.opDiv( 1946, 2111 );
